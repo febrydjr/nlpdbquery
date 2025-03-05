@@ -111,6 +111,35 @@ export const connections: DatabaseConfig[] = [
     createdAt: new Date("2023-03-20T11:20:00"),
     lastConnected: new Date("2023-05-17T14:15:00"),
   },
+  {
+    id: "6",
+    name: "Social Media Analytics",
+    type: "mongodb",
+    url: "mongodb://socialmedia.example.com:27017",
+    database: "analytics_db",
+    createdAt: new Date("2023-04-01T12:00:00"),
+    lastConnected: new Date("2023-05-21T13:00:00"),
+  },
+  {
+    id: "7",
+    name: "Financial Services",
+    type: "mysql",
+    host: "finance.mysql.example.com",
+    port: 3306,
+    username: "finance_user",
+    database: "finance_app",
+    createdAt: new Date("2023-03-15T10:30:00"),
+    lastConnected: new Date("2023-05-22T14:30:00"),
+  },
+  {
+    id: "8",
+    name: "Travel Agency",
+    type: "supabase",
+    url: "https://travel-agency.supabase.co",
+    database: "travel_bookings",
+    createdAt: new Date("2023-02-20T09:00:00"),
+    lastConnected: new Date("2023-05-23T11:00:00"),
+  },
 ];
 
 // E-commerce Database Schema
@@ -736,44 +765,163 @@ const hospitalDatabase: Database = {
     {
       name: "patients",
       columns: [
-        { name: "id", dataType: "integer", isPrimaryKey: true, isForeignKey: false, isRequired: true },
-        { name: "first_name", dataType: "varchar(50)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "last_name", dataType: "varchar(50)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "dob", dataType: "date", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "gender", dataType: "varchar(10)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "address", dataType: "text", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-        { name: "phone", dataType: "varchar(20)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-        { name: "email", dataType: "varchar(100)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "blood_type", dataType: "varchar(5)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "emergency_contact", dataType: "varchar(100)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "insurance_number", dataType: "varchar(50)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "medical_history", dataType: "text", isPrimaryKey: false, isForeignKey: false, isRequired: false }
-        
-      ]
+        {
+          name: "id",
+          dataType: "integer",
+          isPrimaryKey: true,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "first_name",
+          dataType: "varchar(50)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "last_name",
+          dataType: "varchar(50)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "dob",
+          dataType: "date",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "gender",
+          dataType: "varchar(10)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "address",
+          dataType: "text",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "phone",
+          dataType: "varchar(20)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "email",
+          dataType: "varchar(100)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "blood_type",
+          dataType: "varchar(5)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "emergency_contact",
+          dataType: "varchar(100)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "insurance_number",
+          dataType: "varchar(50)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "medical_history",
+          dataType: "text",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+      ],
     },
     {
       name: "doctors",
       columns: [
-        { name: "id", dataType: "integer", isPrimaryKey: true, isForeignKey: false, isRequired: true },
-        { name: "first_name", dataType: "varchar(50)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "last_name", dataType: "varchar(50)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "specialization", dataType: "varchar(100)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "phone", dataType: "varchar(20)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-        { name: "email", dataType: "varchar(100)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-        { name: "salary", dataType: "decimal(10, 2)", isPrimaryKey: false, isForeignKey: false, isRequired: true }
-      ]
+        {
+          name: "id",
+          dataType: "integer",
+          isPrimaryKey: true,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "first_name",
+          dataType: "varchar(50)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "last_name",
+          dataType: "varchar(50)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "specialization",
+          dataType: "varchar(100)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "phone",
+          dataType: "varchar(20)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "email",
+          dataType: "varchar(100)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "salary",
+          dataType: "decimal(10, 2)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+      ],
     },
     {
       name: "appointments",
       columns: [
-        { name: "id", dataType: "integer", isPrimaryKey: true, isForeignKey: false, isRequired: true },
+        {
+          name: "id",
+          dataType: "integer",
+          isPrimaryKey: true,
+          isForeignKey: false,
+          isRequired: true,
+        },
         {
           name: "patient_id",
           dataType: "integer",
           isPrimaryKey: false,
           isForeignKey: true,
           isRequired: true,
-          foreignKeyReference: { table: "patients", column: "id" }
+          foreignKeyReference: { table: "patients", column: "id" },
         },
         {
           name: "doctor_id",
@@ -781,19 +929,60 @@ const hospitalDatabase: Database = {
           isPrimaryKey: false,
           isForeignKey: true,
           isRequired: true,
-          foreignKeyReference: { table: "doctors", column: "id" }
+          foreignKeyReference: { table: "doctors", column: "id" },
         },
-        { name: "appointment_date", dataType: "timestamp", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-        { name: "reason", dataType: "text", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-        { name: "status", dataType: "varchar(20)", isPrimaryKey: false, isForeignKey: false, isRequired: true },
-                { name: "notes", dataType: "text", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "duration_minutes", dataType: "integer", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "room_number", dataType: "varchar(10)", isPrimaryKey: false, isForeignKey: false, isRequired: false },
-                { name: "follow_up_required", dataType: "boolean", isPrimaryKey: false, isForeignKey: false, isRequired: false }
-        
-      ]
-    }
-  ]
+        {
+          name: "appointment_date",
+          dataType: "timestamp",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "reason",
+          dataType: "text",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "status",
+          dataType: "varchar(20)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: true,
+        },
+        {
+          name: "notes",
+          dataType: "text",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "duration_minutes",
+          dataType: "integer",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "room_number",
+          dataType: "varchar(10)",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+        {
+          name: "follow_up_required",
+          dataType: "boolean",
+          isPrimaryKey: false,
+          isForeignKey: false,
+          isRequired: false,
+        },
+      ],
+    },
+  ],
 };
 
 export const staticDatabases: Database[] = [
